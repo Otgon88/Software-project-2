@@ -1,0 +1,24 @@
+const int ledPin = 9; // LED를 연결한 핀 번호
+int brightness = 0;  // 초기 밝기
+int fadeAmount = 5;  // 밝기 증가 또는 감소 속도
+
+void setup() {
+  // 아날로그 출력 핀을 출력 모드로 설정
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // 밝기를 서서히 증가시킴
+  brightness = brightness + fadeAmount;
+
+  // 밝기가 범위를 벗어나면 방향을 바꿈
+  if (brightness <= 0 || brightness >= 220) {
+    fadeAmount = -fadeAmount;
+  }
+
+  // PWM을 사용하여 LED 밝기 설정
+  analogWrite(ledPin, brightness);
+
+  // PWM 변경 속도 조절을 위한 대기 시간
+  delay(30);  // delay 값 변경으로 페이드 속도 조절 가능
+}
