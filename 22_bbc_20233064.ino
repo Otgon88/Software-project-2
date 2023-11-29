@@ -136,7 +136,7 @@ float volt_to_distance(int x)
 {
   // Replace line into your own equation
   // return (6762.0 / (a_value - 9) - 4.0) * 10.0; 
-  return (627+(-2.35*x)+2.2E-03*x*x)*10.0;
+  return (627+(-2.35*x)+2.2E-03*x*x);
 }
 
 int compare(const void *a, const void *b) {
